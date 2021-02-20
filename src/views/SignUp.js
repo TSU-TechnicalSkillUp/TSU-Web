@@ -7,32 +7,32 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {Container} from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 // import http from 'src/utils/Http.js';
 const useStyles = makeStyles((theme) => ({
     formControl: {
-      margin: theme.spacing(3),
-      minWidth: 500,
-      maxWidth: 500,
+        margin: theme.spacing(3),
+        minWidth: 500,
+        maxWidth: 500,
     },
     chips: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap',
     },
     chip: {
-      margin: 2,
+        margin: 2,
     },
-  }));
-  function getStyles(skill, useSkill, theme) {
+}));
+function getStyles(skill, useSkill, theme) {
     return {
-      fontWeight:
-      useSkill.indexOf(skill) === -1
-          ? theme.typography.fontWeightRegular
-          : theme.typography.fontWeightMedium,
+        fontWeight:
+            useSkill.indexOf(skill) === -1
+                ? theme.typography.fontWeightRegular
+                : theme.typography.fontWeightMedium,
     };
-  }
-  
+}
+
 const skills = [
     'VueJS',
     'ReactJS',
@@ -77,20 +77,19 @@ const SignUp = () => {
         // console.log(age);
         // console.log(useSkills);
         // console.log(JSON.stringify(interestSkills));
-        
+
         // http.get('/memberships').then(({data}) => {
         //     context.commit("setMember", data);
         // });
     };
 
     return (
-        // <div style={{alignContent: 'center', justifyContent: 'center', width: '100%'}}>
-        <Container style={{marginTop: 10, marginBottom: 20}}>
+        <Container style={{ marginTop: 10, marginBottom: 20 }}>
             <h1>환영합니다!</h1>
             <p>기본 회원 정보를 입력해주세요.</p>
             <form>
                 <div>
-                    <TextField id="standard-basic" label="이메일" className={classes.formControl}/>
+                    <TextField id="standard-basic" label="이메일" className={classes.formControl} />
                 </div>
                 <div>
                     <FormControl className={classes.formControl}>
@@ -114,7 +113,7 @@ const SignUp = () => {
                 </div>
                 <div>
                     <FormControl className={classes.formControl}>
-                        <InputLabel style={{maxWidth: '100%'}} id="demo-mutiple-chip-label">사용 기술</InputLabel>
+                        <InputLabel style={{ maxWidth: '100%' }} id="demo-mutiple-chip-label">사용 기술</InputLabel>
                         <Select
                             labelId="demo-mutiple-chip-label"
                             id="demo-mutiple-chip"
@@ -125,7 +124,7 @@ const SignUp = () => {
                             renderValue={(selected) => (
                                 <div className={classes.chips}>
                                     {selected.map((value) => (
-                                        <Chip key={value} label={value} className={classes.chip}/>
+                                        <Chip key={value} label={value} className={classes.chip} />
                                     ))}
                                 </div>
                             )}
@@ -152,7 +151,7 @@ const SignUp = () => {
                             renderValue={(selected) => (
                                 <div className={classes.chips}>
                                     {selected.map((value) => (
-                                        <Chip key={value} label={value} className={classes.chip}/>
+                                        <Chip key={value} label={value} className={classes.chip} />
                                     ))}
                                 </div>
                             )}
@@ -167,8 +166,8 @@ const SignUp = () => {
                     </FormControl>
                 </div>
             </form>
-            <Button style={{backgroundColor: 'green'}} onClick={signUp}>가입하기</Button>
-            </Container>
+            <Button style={{ backgroundColor: 'green' }} onClick={signUp}>가입하기</Button>
+        </Container>
     )
 }
 
