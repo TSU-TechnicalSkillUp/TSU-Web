@@ -10,7 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 
-import LoginModal from 'src/components/logInModal/index'
+import LoginModal from 'src/components/logInModal'
+import ProjectCards from 'src/components/projectCards'
 
 // test 용
 import Switch from '@material-ui/core/Switch';
@@ -19,14 +20,15 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'column'
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
-  },
+  menuBar: {
+    position: 'sticky'
+  }
 }));
 
 export default function MenuAppBar() {
@@ -97,17 +99,18 @@ export default function MenuAppBar() {
           label={auth ? 'Logout' : 'Login'}
         />
       </FormGroup>
-      <AppBar position="static">
+      <AppBar className={classes.menuBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6">
             Tech Skill Up
           </Typography>
           {button}
         </Toolbar>
       </AppBar>
+      <ProjectCards></ProjectCards>
       <LoginModal open={isShowLoginModal} onCloseLoninModal={setIsShowLoginModal}>
       </LoginModal>
     </div>
