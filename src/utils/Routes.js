@@ -3,14 +3,14 @@ import {
     Route
 } from "react-router-dom";
 
-import Main from 'src/views/main'
-import Project from '../views/Project';
-import SignUp from '../views/SignUp';
-export default function r () {
-    return (
+import Project from 'src/views/Project';
+import SignUp from 'src/views/SignUp';
+import Main from 'src/views/main/index';
+
+export default () =>(
         <Router>
-            <Route path="/" component={Main}/>
+            <Route path="/" exact component={Main}/>
             <Route path="/project" component={Project}/>
             <Route path="/signup" component={SignUp}/>
         </Router>
-)}
+)
